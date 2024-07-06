@@ -33,7 +33,7 @@ app.use(
     tempFileDir: "/tmp/",
   })
 );
-dbConnection();
+
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/timeline", timelineRouter);
 app.use("/api/v1/message", messageRouter);
