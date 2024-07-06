@@ -13,7 +13,7 @@ import softwareApplicationRouter from "./routes/softwareApplicationRouter.js";
 import projectRouter from "./routes/projectRouter.js";
 
 const app = express();
-dotenv.config({ path: "./config/config.env" });
+dotenv.config();
 
 app.use(
   cors({
@@ -33,7 +33,7 @@ app.use(
     tempFileDir: "/tmp/",
   })
 );
-
+dbConnection();
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/timeline", timelineRouter);
 app.use("/api/v1/message", messageRouter);
@@ -44,7 +44,7 @@ app.use("/", (req,res) => {
  res.send("dashboard")
 })
 
-dbConnection();
+
 app.use(errorMiddleware);
 
 export default app;
