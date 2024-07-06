@@ -5,6 +5,7 @@ import ErrorHandler from "../middlewares/error.js";
 import { generateToken } from "../utils/jwtToken.js";
 import crypto from "crypto";
 import { sendEmail } from "../utils/sendEmail.js";
+import config from "../config/index.js";
 
 export const register = catchAsyncErrors(async (req, res, next) => {
 
@@ -215,7 +216,7 @@ export const forgotPassword = catchAsyncErrors(async (req, res, next) => {
 
   await user.save({ validateBeforeSave: false });
 
-  const resetPasswordUrl = `${process.env.DASHBOARD_URL}/password/reset/${resetToken}`;
+  const resetPasswordUrl = `${config.DASHBOARD_URL}/password/reset/${resetToken}`;
 
   const message = `Your Reset Password Token is:- \n\n ${resetPasswordUrl}  \n\n If 
   You've not requested this email then, please ignore it.`;

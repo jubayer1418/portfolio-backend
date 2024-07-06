@@ -11,6 +11,7 @@ import messageRouter from "./routes/messageRouter.js";
 import skillRouter from "./routes/skillRouter.js";
 import softwareApplicationRouter from "./routes/softwareApplicationRouter.js";
 import projectRouter from "./routes/projectRouter.js";
+import config from "./config/index.js";
 
 const app = express();
 
@@ -18,7 +19,7 @@ dotenv.config({ path: "./config/config.env" });
 
 app.use(
   cors({
-    origin: [process.env.PORTFOLIO_URL, process.env.DASHBOARD_URL],
+    origin: [config.PORTFOLIO_URL, config.DASHBOARD_URL],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
