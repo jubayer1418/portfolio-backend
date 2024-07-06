@@ -13,7 +13,8 @@ import softwareApplicationRouter from "./routes/softwareApplicationRouter.js";
 import projectRouter from "./routes/projectRouter.js";
 
 const app = express();
-dotenv.config();
+
+dotenv.config({ path: "./config/config.env" });
 
 app.use(
   cors({
