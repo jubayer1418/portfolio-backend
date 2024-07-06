@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import app from "./app.js";
 import cloudinary from "cloudinary";
 
@@ -9,7 +10,7 @@ cloudinary.v2.config({
 
 async function main() {
   try {
-    mongoose.connect(process.env.MONGO_URL);
+  await  mongoose.connect(process.env.MONGO_URL);
     app.listen(process.env.PORT, () => {
       console.log(`Example app listening on port ${process.env.PORT}`);
     });
